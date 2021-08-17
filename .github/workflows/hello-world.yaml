@@ -3,6 +3,8 @@ on: push
 jobs:
   my-job:
     runs-on: ubuntu-latest
+    container: gradle:jdk11
     steps:
-      - name: my-step
-        run: echo "Hello World!"
+      - uses: actions/checkout@2
+      - name: Build
+        run: bash ci/build-app.sh
