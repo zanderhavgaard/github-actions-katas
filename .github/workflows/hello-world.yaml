@@ -2,7 +2,7 @@ name: java CI
 on: push
 jobs:
   checkout:
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     container: gradle:6-jdk11
     steps:
       - uses: actions/checkout@v2
