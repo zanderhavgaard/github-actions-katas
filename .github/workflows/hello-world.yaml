@@ -70,4 +70,4 @@ jobs:
         name: build
         path: .
     - name: Execute component test
-      run: GIT_COMMIT="GA-$GITHUB_SHA" && ci/component-test.sh
+      run: ci/component-test.sh
