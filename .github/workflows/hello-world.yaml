@@ -13,5 +13,5 @@ jobs:
       - name: upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: my-artifact
-          path: code
+          name: code
+          path: .
