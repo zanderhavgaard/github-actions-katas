@@ -1,10 +1,12 @@
 name: hello-world
 on: push
 jobs:
-  my-job:
+  build:
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
     steps:
       - uses: actions/checkout@v2
+      - name: unit-test
+        run: bash ci/unit-test-app.sh
       - name: Build
         run: bash ci/build-app.sh
