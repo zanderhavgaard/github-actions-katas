@@ -70,4 +70,4 @@ jobs:
         name: build
         path: .
     - name: Execute component test
-      run: ci/component-test.sh
+      run: bash ci/component-test.sh
