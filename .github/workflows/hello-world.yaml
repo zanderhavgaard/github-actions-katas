@@ -19,7 +19,7 @@ jobs:
   unit-test:
     needs: checkout
     runs-on: ubuntu-latest
-    container: ${{ gradle_image }}
+    container: ${{ env.gradle_image }}
     steps:
       - name: Download code
         uses: actions/download-artifact@v2
