@@ -1,13 +1,17 @@
 name: java CI
 on: push
+
+docker_gradle_image: &docker_gradle_image
+  container: gradle:6-jdk11
+
+
 env:
   docker_username: ${{ secrets.DOCKER_USERNAME }}
   docker_password: ${{ secrets.DOCKER_PASSWORD }}
-  gradle_image: gradle:6-jdk11
 jobs:
   checkout:
     runs-on: ubuntu-latest
-    container: gradle:6-jdk11
+    <<: *docker_gradle_image
     steps:
       - uses: actions/checkout@v2
       - name: upload repo
@@ -19,7 +23,7 @@ jobs:
   unit-test:
     needs: checkout
     runs-on: ubuntu-latest
-    container: ${{ env.gradle_image }}
+    container: gradle:6-jdk11
     steps:
       - name: Download code
         uses: actions/download-artifact@v2
